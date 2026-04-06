@@ -1,0 +1,399 @@
+---
+API: 3
+OpenSesame: 4.0.5
+Platform: nt
+---
+set width 1024
+set title STROOP_task
+set subject_parity even
+set subject_nr 0
+set start experiment
+set sound_sample_size -16
+set sound_freq 48000
+set sound_channels 2
+set sound_buf_size 1024
+set sampler_backend legacy
+set round_decimals 2
+set mouse_backend xpyriment
+set keyboard_backend legacy
+set height 768
+set fullscreen no
+set form_clicks no
+set foreground white
+set font_underline no
+set font_size 25
+set font_italic False
+set font_family mono
+set font_bold False
+set experiment_path "C:\\Users\\jobamd54857\\Downloads\\stroop_task"
+set disable_garbage_collection False
+set description "The main experiment item"
+set color_backend legacy
+set clock_backend legacy
+set canvas_backend xpyriment
+set background "#3d3846"
+
+define sketchpad Number
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size="[font_size_left]" html=yes show_if=True text="[number_left]" x=-192 y=0 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size="[font_size_right]" html=yes show_if=True text="[number_right]" x=189 y=0 z_index=0
+
+define sketchpad blank
+	set duration 200
+	set description "Displays stimuli"
+
+define loop block_loop
+	set source table
+	set repeat 4
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 48
+	set continuous no
+	set break_if_on_first yes
+	set break_if False
+	setcycle 0 number_left 1
+	setcycle 0 number_right 2
+	setcycle 0 font_size_left 40
+	setcycle 0 font_size_right 80
+	setcycle 0 condition c
+	setcycle 0 correct_resp p
+	setcycle 1 number_left 2
+	setcycle 1 number_right 1
+	setcycle 1 font_size_left 80
+	setcycle 1 font_size_right 40
+	setcycle 1 condition c
+	setcycle 1 correct_resp q
+	setcycle 2 number_left 3
+	setcycle 2 number_right 4
+	setcycle 2 font_size_left 40
+	setcycle 2 font_size_right 80
+	setcycle 2 condition c
+	setcycle 2 correct_resp p
+	setcycle 3 number_left 4
+	setcycle 3 number_right 3
+	setcycle 3 font_size_left 80
+	setcycle 3 font_size_right 40
+	setcycle 3 condition c
+	setcycle 3 correct_resp q
+	setcycle 4 number_left 6
+	setcycle 4 number_right 7
+	setcycle 4 font_size_left 40
+	setcycle 4 font_size_right 80
+	setcycle 4 condition c
+	setcycle 4 correct_resp p
+	setcycle 5 number_left 7
+	setcycle 5 number_right 6
+	setcycle 5 font_size_left 80
+	setcycle 5 font_size_right 40
+	setcycle 5 condition c
+	setcycle 5 correct_resp q
+	setcycle 6 number_left 8
+	setcycle 6 number_right 9
+	setcycle 6 font_size_left 40
+	setcycle 6 font_size_right 80
+	setcycle 6 condition c
+	setcycle 6 correct_resp p
+	setcycle 7 number_left 9
+	setcycle 7 number_right 8
+	setcycle 7 font_size_left 80
+	setcycle 7 font_size_right 40
+	setcycle 7 condition c
+	setcycle 7 correct_resp q
+	setcycle 8 number_left 1
+	setcycle 8 number_right 6
+	setcycle 8 font_size_left 40
+	setcycle 8 font_size_right 80
+	setcycle 8 condition c
+	setcycle 8 correct_resp p
+	setcycle 9 number_left 6
+	setcycle 9 number_right 1
+	setcycle 9 font_size_left 80
+	setcycle 9 font_size_right 40
+	setcycle 9 condition c
+	setcycle 9 correct_resp q
+	setcycle 10 number_left 2
+	setcycle 10 number_right 7
+	setcycle 10 font_size_left 40
+	setcycle 10 font_size_right 80
+	setcycle 10 condition c
+	setcycle 10 correct_resp p
+	setcycle 11 number_left 7
+	setcycle 11 number_right 2
+	setcycle 11 font_size_left 80
+	setcycle 11 font_size_right 40
+	setcycle 11 condition c
+	setcycle 11 correct_resp q
+	setcycle 12 number_left 3
+	setcycle 12 number_right 8
+	setcycle 12 font_size_left 40
+	setcycle 12 font_size_right 80
+	setcycle 12 condition c
+	setcycle 12 correct_resp p
+	setcycle 13 number_left 8
+	setcycle 13 number_right 3
+	setcycle 13 font_size_left 80
+	setcycle 13 font_size_right 40
+	setcycle 13 condition c
+	setcycle 13 correct_resp q
+	setcycle 14 number_left 4
+	setcycle 14 number_right 9
+	setcycle 14 font_size_left 40
+	setcycle 14 font_size_right 80
+	setcycle 14 condition c
+	setcycle 14 correct_resp p
+	setcycle 15 number_left 9
+	setcycle 15 number_right 4
+	setcycle 15 font_size_left 80
+	setcycle 15 font_size_right 40
+	setcycle 15 condition c
+	setcycle 15 correct_resp q
+	setcycle 16 number_left 1
+	setcycle 16 number_right 2
+	setcycle 16 font_size_left 80
+	setcycle 16 font_size_right 40
+	setcycle 16 condition i
+	setcycle 16 correct_resp p
+	setcycle 17 number_left 2
+	setcycle 17 number_right 1
+	setcycle 17 font_size_left 40
+	setcycle 17 font_size_right 80
+	setcycle 17 condition i
+	setcycle 17 correct_resp q
+	setcycle 18 number_left 3
+	setcycle 18 number_right 4
+	setcycle 18 font_size_left 80
+	setcycle 18 font_size_right 40
+	setcycle 18 condition i
+	setcycle 18 correct_resp p
+	setcycle 19 number_left 4
+	setcycle 19 number_right 3
+	setcycle 19 font_size_left 40
+	setcycle 19 font_size_right 80
+	setcycle 19 condition i
+	setcycle 19 correct_resp q
+	setcycle 20 number_left 6
+	setcycle 20 number_right 7
+	setcycle 20 font_size_left 80
+	setcycle 20 font_size_right 40
+	setcycle 20 condition i
+	setcycle 20 correct_resp p
+	setcycle 21 number_left 7
+	setcycle 21 number_right 6
+	setcycle 21 font_size_left 40
+	setcycle 21 font_size_right 80
+	setcycle 21 condition i
+	setcycle 21 correct_resp q
+	setcycle 22 number_left 8
+	setcycle 22 number_right 9
+	setcycle 22 font_size_left 80
+	setcycle 22 font_size_right 40
+	setcycle 22 condition i
+	setcycle 22 correct_resp p
+	setcycle 23 number_left 9
+	setcycle 23 number_right 8
+	setcycle 23 font_size_left 40
+	setcycle 23 font_size_right 80
+	setcycle 23 condition i
+	setcycle 23 correct_resp q
+	setcycle 24 number_left 1
+	setcycle 24 number_right 6
+	setcycle 24 font_size_left 80
+	setcycle 24 font_size_right 40
+	setcycle 24 condition i
+	setcycle 24 correct_resp p
+	setcycle 25 number_left 6
+	setcycle 25 number_right 1
+	setcycle 25 font_size_left 40
+	setcycle 25 font_size_right 80
+	setcycle 25 condition i
+	setcycle 25 correct_resp q
+	setcycle 26 number_left 2
+	setcycle 26 number_right 7
+	setcycle 26 font_size_left 80
+	setcycle 26 font_size_right 40
+	setcycle 26 condition i
+	setcycle 26 correct_resp p
+	setcycle 27 number_left 7
+	setcycle 27 number_right 2
+	setcycle 27 font_size_left 40
+	setcycle 27 font_size_right 80
+	setcycle 27 condition i
+	setcycle 27 correct_resp q
+	setcycle 28 number_left 3
+	setcycle 28 number_right 8
+	setcycle 28 font_size_left 80
+	setcycle 28 font_size_right 40
+	setcycle 28 condition i
+	setcycle 28 correct_resp p
+	setcycle 29 number_left 8
+	setcycle 29 number_right 3
+	setcycle 29 font_size_left 40
+	setcycle 29 font_size_right 80
+	setcycle 29 condition i
+	setcycle 29 correct_resp q
+	setcycle 30 number_left 4
+	setcycle 30 number_right 9
+	setcycle 30 font_size_left 80
+	setcycle 30 font_size_right 40
+	setcycle 30 condition i
+	setcycle 30 correct_resp p
+	setcycle 31 number_left 9
+	setcycle 31 number_right 4
+	setcycle 31 font_size_left 40
+	setcycle 31 font_size_right 80
+	setcycle 31 condition i
+	setcycle 31 correct_resp q
+	setcycle 32 number_left 1
+	setcycle 32 number_right 2
+	setcycle 32 font_size_left 60
+	setcycle 32 font_size_right 60
+	setcycle 32 condition n
+	setcycle 32 correct_resp p
+	setcycle 33 number_left 2
+	setcycle 33 number_right 1
+	setcycle 33 font_size_left 60
+	setcycle 33 font_size_right 60
+	setcycle 33 condition n
+	setcycle 33 correct_resp q
+	setcycle 34 number_left 3
+	setcycle 34 number_right 4
+	setcycle 34 font_size_left 60
+	setcycle 34 font_size_right 60
+	setcycle 34 condition n
+	setcycle 34 correct_resp p
+	setcycle 35 number_left 4
+	setcycle 35 number_right 3
+	setcycle 35 font_size_left 60
+	setcycle 35 font_size_right 60
+	setcycle 35 condition n
+	setcycle 35 correct_resp q
+	setcycle 36 number_left 6
+	setcycle 36 number_right 7
+	setcycle 36 font_size_left 60
+	setcycle 36 font_size_right 60
+	setcycle 36 condition n
+	setcycle 36 correct_resp p
+	setcycle 37 number_left 7
+	setcycle 37 number_right 6
+	setcycle 37 font_size_left 60
+	setcycle 37 font_size_right 60
+	setcycle 37 condition n
+	setcycle 37 correct_resp q
+	setcycle 38 number_left 8
+	setcycle 38 number_right 9
+	setcycle 38 font_size_left 60
+	setcycle 38 font_size_right 60
+	setcycle 38 condition n
+	setcycle 38 correct_resp p
+	setcycle 39 number_left 9
+	setcycle 39 number_right 8
+	setcycle 39 font_size_left 60
+	setcycle 39 font_size_right 60
+	setcycle 39 condition n
+	setcycle 39 correct_resp q
+	setcycle 40 number_left 1
+	setcycle 40 number_right 6
+	setcycle 40 font_size_left 60
+	setcycle 40 font_size_right 60
+	setcycle 40 condition n
+	setcycle 40 correct_resp p
+	setcycle 41 number_left 6
+	setcycle 41 number_right 1
+	setcycle 41 font_size_left 60
+	setcycle 41 font_size_right 60
+	setcycle 41 condition n
+	setcycle 41 correct_resp q
+	setcycle 42 number_left 2
+	setcycle 42 number_right 7
+	setcycle 42 font_size_left 60
+	setcycle 42 font_size_right 60
+	setcycle 42 condition n
+	setcycle 42 correct_resp p
+	setcycle 43 number_left 7
+	setcycle 43 number_right 2
+	setcycle 43 font_size_left 60
+	setcycle 43 font_size_right 60
+	setcycle 43 condition n
+	setcycle 43 correct_resp q
+	setcycle 44 number_left 3
+	setcycle 44 number_right 8
+	setcycle 44 font_size_left 60
+	setcycle 44 font_size_right 60
+	setcycle 44 condition n
+	setcycle 44 correct_resp p
+	setcycle 45 number_left 8
+	setcycle 45 number_right 3
+	setcycle 45 font_size_left 60
+	setcycle 45 font_size_right 60
+	setcycle 45 condition n
+	setcycle 45 correct_resp q
+	setcycle 46 number_left 4
+	setcycle 46 number_right 9
+	setcycle 46 font_size_left 60
+	setcycle 46 font_size_right 60
+	setcycle 46 condition n
+	setcycle 46 correct_resp p
+	setcycle 47 number_left 9
+	setcycle 47 number_right 4
+	setcycle 47 font_size_left 60
+	setcycle 47 font_size_right 60
+	setcycle 47 condition n
+	setcycle 47 correct_resp q
+	run trial_sequence
+
+define sketchpad end_message
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=serif font_italic=no font_size=40 html=yes show_if=True text="Thank you for your help!" x=0 y=0 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=serif font_italic=no font_size=32 html=yes show_if=True text="Press any key to quit the experiment" x=0 y=300 z_index=0
+
+define sequence experiment
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run welcome_message True
+	run intructions True
+	run block_loop True
+	run end_message True
+
+define sketchpad fixation
+	set duration 500
+	set description "Displays stimuli"
+	draw fixdot color=white show_if=True style=default x=0 y=0 z_index=0
+
+define sketchpad intructions
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color="#ffffff" font_bold=no font_family=serif font_italic=no font_size=40 html=yes show_if=True text="Instractions<br /><br />In this task, you will see two digits, one on  the left and one on the right side of the screen. Select the numercalluy larger digit by pressing the Q key for left and the P key for the right.<br />" x=0.0 y=-32.0 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=serif font_italic=no font_size=32 html=yes show_if=True text="Press any key to begin" x=0 y=300 z_index=0
+
+define keyboard_response key_response
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+	set correct_response "[correct_resp]"
+	set allowed_responses "q;p"
+
+define logger logger
+	set description "Logs experimental data"
+	set auto_log yes
+
+define sequence trial_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run blank True
+	run fixation True
+	run Number True
+	run key_response True
+	run logger True
+
+define sketchpad welcome_message
+	set start_response_interval no
+	set reset_variables no
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=serif font_italic=no font_size=40 html=yes show_if=True text=Welcome x=0.0 y=-2.0 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=serif font_italic=no font_size=32 html=yes show_if=True text="Press any key to continue" x=0 y=300 z_index=0
+
