@@ -102,25 +102,17 @@ This approach reduces the influence of incorrect trials on condition-wise reacti
 
 ```text
 numerical-stroop-task/
-├── README.md
-├── requirements.txt
-├── .gitignore
-│
-├── data/
-│   └── anonymized participant CSV files
-│
-├── experiment/
-│   └── OpenSesame experiment file
-│
+├── data/                # anonymized participant CSV files
+├── experiment/          # OpenSesame experiment file
+├── results/             # generated plots and visual outputs
+│   ├── all_participants/
+│   ├── group_comparison/
+│   └── individual/
 ├── scripts/
 │   ├── main_analysis.m
 │   ├── stroop_analysis.py
 │   └── stroop_analysis.ipynb
-│
-└── results/
-    ├── group_comparison/
-    ├── all_participants/
-    └── individual/
+└── README.md
 ```
 
 ---
