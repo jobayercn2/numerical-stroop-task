@@ -21,6 +21,7 @@ This repository demonstrates a complete behavioral experiment workflow:
 - Group-level visualization
 - Individual participant visualization
 - Cross-platform analysis replication in MATLAB and Python
+- Presentation-ready project documentation
 
 The project focuses on cognitive interference, selective attention, reaction-time differences, and reproducible behavioral data analysis.
 
@@ -38,7 +39,7 @@ The task creates conflict when the numerical value and physical size of the stim
 - Response conflict
 - Reaction-time differences across task conditions
 
-This repository includes the OpenSesame experiment file, anonymized participant data, MATLAB analysis scripts, Python analysis scripts, and generated visual outputs.
+This repository includes the OpenSesame experiment file, anonymized participant data, MATLAB analysis scripts, Python analysis scripts, generated visual outputs, and presentation materials.
 
 ---
 
@@ -48,21 +49,19 @@ The main aim of this project was to examine whether reaction times differ across
 
 The central behavioral question was:
 
-> Do participants respond more slowly when numerical value and physical size conflict compared with when they are congruent?
+> Do participants show reaction-time differences across numerical comparison conditions in a Numerical Stroop task?
 
 ---
 
 ## Experimental Design
 
-Participants completed a Numerical Stroop task with three conditions:
+Participants completed a Numerical Stroop task involving numerical comparison under different stimulus conditions.
 
-| Condition | Description |
-|---|---|
-| Congruent | Numerical value and physical size matched. |
-| Incongruent | Numerical value and physical size conflicted. |
-| Neutral | Comparison condition without direct congruency conflict. |
+The repository includes behavioral data from:
 
-A total of **6 participants** completed the task.
+```text
+6 participants
+```
 
 Because of the small sample size, the analysis is interpreted as a **behavioral workflow demonstration** rather than confirmatory evidence.
 
@@ -95,6 +94,7 @@ This approach reduces the influence of incorrect trials on condition-wise reacti
 | Jupyter Notebook | Interactive analysis and documentation |
 | pandas / NumPy | Data handling and numerical analysis |
 | matplotlib | Visualization |
+| PowerPoint / PDF | Project presentation materials |
 
 ---
 
@@ -102,16 +102,41 @@ This approach reduces the influence of incorrect trials on condition-wise reacti
 
 ```text
 numerical-stroop-task/
-├── data/                # anonymized participant CSV files
-├── experiment/          # OpenSesame experiment file
-├── results/             # generated plots and visual outputs
+├── data/
+│   ├── subject-1.csv
+│   ├── subject-2.csv
+│   ├── subject-3.csv
+│   ├── subject-4.csv
+│   ├── subject-5.csv
+│   └── subject-6.csv
+│
+├── experiment/
+│   └── stroop_task.osexp
+│
+├── presentation/
+│   ├── stroop_task_presentation.pdf
+│   └── stroop_task_presentation.pptx
+│
+├── results/
 │   ├── all_participants/
+│   │   └── all_participants_boxplot.png
+│   │
 │   ├── group_comparison/
+│   │   └── group_odd_even_boxplot.png
+│   │
 │   └── individual/
+│       ├── participant_1_boxplot.png
+│       ├── participant_2_boxplot.png
+│       ├── participant_3_boxplot.png
+│       ├── participant_4_boxplot.png
+│       ├── participant_5_boxplot.png
+│       └── participant_6_boxplot.png
+│
 ├── scripts/
 │   ├── main_analysis.m
-│   ├── stroop_analysis.py
-│   └── stroop_analysis.ipynb
+│   ├── stroop_analysis.ipynb
+│   └── stroop_analysis.py
+│
 └── README.md
 ```
 
@@ -126,7 +151,8 @@ OpenSesame task
 → participant CSV files
 → data cleaning
 → correct-trial filtering
-→ condition-wise reaction-time extraction
+→ reaction-time extraction
+→ participant-level visualization
 → group-level visualization
 → MATLAB/Python replication
 ```
@@ -137,17 +163,15 @@ OpenSesame task
 
 ### Group-Level Reaction Time Comparison
 
-![Group reaction time comparison](results/group_comparison/group_reaction_time_comparison.png)
+![Group reaction time comparison](results/group_comparison/group_odd_even_boxplot.png)
 
 ### All Participants Reaction Time Summary
 
-![All participants reaction time summary](results/all_participants/all_participants_reaction_time.png)
+![All participants reaction time summary](results/all_participants/all_participants_boxplot.png)
 
 ### Example Individual Participant Plot
 
-![Example individual participant plot](results/individual/example_individual_participant.png)
-
-> Note: If your local figure filenames are different, update the image paths above to match your actual files.
+![Example individual participant plot](results/individual/participant_1_boxplot.png)
 
 ---
 
@@ -158,7 +182,7 @@ The MATLAB workflow performs:
 - CSV data loading
 - participant-wise reaction-time extraction
 - filtering for correct responses
-- condition-wise mean reaction-time calculation
+- condition-wise reaction-time calculation
 - individual participant visualization
 - group-level comparison plots
 
@@ -172,7 +196,7 @@ scripts/main_analysis.m
 
 ## Python Analysis
 
-The Python workflow reproduces the same behavioral analysis using Python tools.
+The Python workflow reproduces the behavioral analysis using Python tools.
 
 Main files:
 
@@ -185,15 +209,22 @@ The Python analysis demonstrates reproducibility across programming environments
 
 ---
 
-## Key Exploratory Output
+## Presentation Materials
 
-The expected Numerical Stroop pattern is:
+The repository includes presentation files summarizing the project:
 
 ```text
-Incongruent trials → slower reaction times
-Congruent trials → faster reaction times
-Neutral trials → intermediate or baseline-level responses
+presentation/stroop_task_presentation.pdf
+presentation/stroop_task_presentation.pptx
 ```
+
+These files provide a presentation-oriented overview of the task design, analysis workflow, and behavioral outputs.
+
+---
+
+## Key Exploratory Output
+
+The expected Numerical Stroop pattern is that reaction times vary depending on the degree of cognitive interference or stimulus-response conflict.
 
 Given the small sample size, this project is presented as an experimental and computational workflow demonstration rather than a confirmatory behavioral study.
 
@@ -214,7 +245,7 @@ scripts/main_analysis.m
 Install required Python packages:
 
 ```bash
-pip install -r requirements.txt
+pip install pandas numpy matplotlib jupyter
 ```
 
 Run the Python script:
@@ -233,13 +264,20 @@ jupyter notebook scripts/stroop_analysis.ipynb
 
 ## Requirements
 
-Create a Python environment and install:
+The Python analysis requires:
+
+```text
+pandas
+numpy
+matplotlib
+jupyter
+```
+
+Install manually with:
 
 ```bash
 pip install pandas numpy matplotlib jupyter
 ```
-
-The project can also be run using the provided `requirements.txt`.
 
 ---
 
@@ -252,11 +290,13 @@ This project demonstrates:
 - Cognitive interference paradigm construction
 - Reaction-time data cleaning
 - Correct-trial filtering
-- Condition-wise behavioral analysis
+- Participant-level behavioral analysis
+- Group-level behavioral analysis
 - MATLAB-based data analysis
 - Python-based analysis replication
+- Jupyter Notebook workflow
 - Data visualization
-- Reproducible behavioral neuroscience workflow organization
+- Reproducible behavioral neuroscience project organization
 
 ---
 
@@ -284,6 +324,7 @@ Possible extensions include:
 - Modeling reaction times with mixed-effects models
 - Adding trial-level analysis
 - Improving visualization with publication-style plots
+- Adding a short methods report in the repository
 
 ---
 
